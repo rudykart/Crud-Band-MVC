@@ -1,3 +1,4 @@
-# Crud-Band-MVC
-Jika kamu ingin mencobanya, ubah BASEURL nya di app/config/config.php<br/>
-dan saya minta maaf karna code nya berantakan hehehe....<br>
+# UAS_LinearRegression
+Linear Regression untuk melihat hasil latihan belajar dari waktu dan nilai<br/>
+Nama Moch. Rudy Kartono<br/>
+Nim 171011400045
