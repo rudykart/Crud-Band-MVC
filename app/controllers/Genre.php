@@ -2,10 +2,29 @@
 
 class Genre extends Controller
 {
+    public function __construct()
+    {
+        if ($_SESSION['session_login'] != 'sudah_login') {
+            Flasher::setFlash('Silahkan', 'Login', 'terlebih dahulu.', 'danger');
+            header('location: ' . BASEURL . '/login');
+            exit;
+        }
+    }
+
     public function index()
     {
         $data['title'] = 'Daftar Genre';
         $data['genre'] = $this->model('Genre_model')->getAllGenre();
+        $this->view('templates/header', $data);
+        $this->view('genre/index', $data);
+        $this->view('templates/footer');
+    }
+
+    public function cari()
+    {
+        $data['title'] = 'Daftar Genre';
+        $data['genre'] = $this->model('Genre_model')->cariGenre();
+        $data['kata_kunci'] = $_POST['kata_kunci'];
         $this->view('templates/header', $data);
         $this->view('genre/index', $data);
         $this->view('templates/footer');

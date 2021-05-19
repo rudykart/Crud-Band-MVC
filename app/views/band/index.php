@@ -10,27 +10,23 @@
         <table class="my-1">
             <tr>
                 <td>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Recipient's username"
-                            aria-label="Recipient's username with two button addons" aria-describedby="button-addon4">
-                        <div class="input-group-append" id="button-addon4">
-                            <button class="btn btn-outline-secondary" type="button">Cari !</button>
-                            <button class="btn btn-outline-secondary" type="button">Reset</button>
+                    <form action="<?= BASEURL; ?>/band/cari" method="post">
+                        <div class="input-group">
+                            <input type="text" class="form-control" style="width: 20rem;" placeholder="Keyword"
+                                aria-label="Recipient's username with two button addons"
+                                aria-describedby="button-addon4" name="kata_kunci" autocomplete="off">
+                            <div class="input-group-append" id="button-addon4">
+                                <button class="btn btn-outline-secondary" type="submit">Cari !</button>
+                                <a href="<?= BASEURL; ?>/band" class="btn btn-outline-secondary" type="button">Reset</a>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </td>
                 <div class="btn-group float-right mt-1">
                     <button class="btn float-right btn-xs btn btn-primary" data-toggle="modal"
                         data-target="#formModalTambah">
-                        Tambah
+                        Tambah Band
                     </button>
-
-                    <a href="<?= BASEURL; ?>/genre/laporan" class="btn float-right btn-xs btn btn-info">
-                        Laporan Band
-                    </a>
-                    <a href="<?= BASEURL; ?>/genre/tambah" class="btn float-right btn-xs btn btn-warning">
-                        Lihat
-                    </a>
                 </div>
                 <td>
                 </td>
@@ -51,7 +47,7 @@
                     <th scope="col">Nama Band</th>
                     <th scope="col">Genre</th>
                     <th scope="col">Asal</th>
-                    <th scope="col" style="width: 110px">
+                    <th scope="col" style="width: 154px">
                         <center>Aksi</center>
                     </th>
                 </tr>
@@ -62,13 +58,16 @@
                 foreach ($data['band'] as $band) : ?>
                 <tr>
                     <td scope="row"><?= $no++; ?></td>
-                    <td><?= $band['id_band']; ?> | <?= $band['nama_band']; ?></td>
+                    <td><?= $band['nama_band']; ?></td>
                     <td><?= $band['nama_genre']; ?></td>
                     <td><?= $band['negara']; ?></td>
                     <td>
                         <?php require 'edit.php'; ?>
+                        <?php require 'detail.php'; ?>
                         <!-- href nya ga kepake kalo make modal -->
                         <a href="" class="badge badge-info" data-toggle="modal"
+                            data-target="#formModalDetail<?= $band['id_band']; ?>">Detail</a>
+                        <a href="" class="badge badge-warning" data-toggle="modal"
                             data-target="#formModalEdit<?= $band['id_band']; ?>">Edit</a>
 
                         <a href="<?= BASEURL; ?>/band/hapus/<?= $band['id_band'] ?>" class="badge badge-danger"
@@ -78,5 +77,6 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+
     </div>
 </div>

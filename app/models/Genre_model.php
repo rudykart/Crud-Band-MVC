@@ -39,6 +39,14 @@ class Genre_model
         return $this->db->rowCount(); // <-- buat di kembalikan ke di controllr Mahasiswa public function tambah()
     }
 
+    public function cariGenre()
+    {
+        $key = $_POST['kata_kunci'];
+        $this->db->query("SELECT * FROM genre WHERE nama_genre LIKE :kata_kunci");
+        $this->db->bind('kata_kunci', "%$key%");
+        return $this->db->resultSet();
+    }
+
     public function hapusDataGenre($id)
     {
         $this->db->query('DELETE FROM ' . $this->table . ' WHERE id_genre=:id_genre');

@@ -14,7 +14,7 @@
             </div>
             <div class="modal-body">
 
-                <form action="<?= BASEURL; ?>/band/update" method="post">
+                <form action="<?= BASEURL; ?>/band/update" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id_band" value="<?= $band['id_band']; ?>">
                     <div class="form-group">
                         <label for="nama_band">Nama Band</label>
@@ -42,6 +42,12 @@
                         <label for="negara">Asal</label>
                         <input type="text" class="form-control" id="negara" name="negara"
                             value="<?= $band['negara']; ?>">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto_band">Foto</label>
+                        <input type="file" class="form-control-file" id="foto_band" name="foto_band"
+                            value="<?= $band['foto_band']; ?>">
                     </div>
             </div>
 

@@ -1,4 +1,3 @@
-<?php require 'tambah.php'; ?>
 <!-- card header -->
 <div class="card my-3">
     <div class="card-header">
@@ -9,25 +8,18 @@
         <table class="my-1">
             <tr>
                 <td>
-                    <form action="<?= BASEURL; ?>/genre/cari" method="post">
+                    <form action="<?= BASEURL; ?>/user/cari" method="post">
                         <div class="input-group">
                             <input type="text" class="form-control" style="width: 20rem;" placeholder="Keyword"
                                 aria-label="Recipient's username with two button addons"
                                 aria-describedby="button-addon4" name="kata_kunci" autocomplete="off">
                             <div class="input-group-append" id="button-addon4">
                                 <button class="btn btn-outline-secondary" type="submit">Cari !</button>
-                                <a href="<?= BASEURL; ?>/genre" class="btn btn-outline-secondary"
-                                    type="button">Reset</a>
+                                <a href="<?= BASEURL; ?>/user" class="btn btn-outline-secondary" type="button">Reset</a>
                             </div>
                         </div>
                     </form>
                 </td>
-                <div class="btn-group float-right mt-1">
-                    <button class="btn float-right btn-xs btn btn-primary" data-toggle="modal"
-                        data-target="#formModalTambah">
-                        Tambah Genre
-                    </button>
-                </div>
                 <td>
                 </td>
             </tr>
@@ -44,8 +36,9 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col" style="width: 10px">#</th>
-                    <th scope="col">Genre</th>
-                    <th scope="col" style="width: 110px">
+                    <th scope="col">User</th>
+                    <th scope="col">Email</th>
+                    <th scope="col" style="width: 118px">
                         <center>Aksi</center>
                     </th>
                 </tr>
@@ -53,16 +46,17 @@
             <tbody>
                 <?php
                 $no = 1;
-                foreach ($data['genre'] as $genre) : ?>
+                foreach ($data['user'] as $user) : ?>
                 <tr>
                     <td scope="row"><?= $no++; ?></td>
-                    <td><?= $genre['nama_genre']; ?></td>
+                    <td><?= $user['nama_user']; ?></td>
+                    <td><?= $user['email_user']; ?></td>
                     <td>
                         <!-- href nya ga kepake kalo make modal -->
-                        <a href="" class="badge badge-warning" data-toggle="modal"
-                            data-target="#formModalEdit<?= $genre['id_genre']; ?>">Edit</a>
-                        <?php require 'edit.php'; ?>
-                        <a href="<?= BASEURL; ?>/genre/hapus/<?= $genre['id_genre'] ?>" class="badge badge-danger"
+                        <a href="" class="badge badge-info" data-toggle="modal"
+                            data-target="#formModalDetail<?= $user['id_user']; ?>">Detail</a>
+                        <?php require 'detail.php'; ?>
+                        <a href="<?= BASEURL; ?>/user/hapus/<?= $user['id_user'] ?>" class="badge badge-danger"
                             onclick="return confirm('Hapus data?');">Hapus</a>
                     </td>
                 </tr>

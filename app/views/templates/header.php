@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BandMX - <?= $data['title'] ?></title>
+    <title>BandKART - <?= $data['title'] ?></title>
 
     <!-- buat parent css bootstrap -->
     <link rel="stylesheet" href=" <?= BASEURL; ?>/plugins/bootstrap/css/bootstrap.min.css">
@@ -18,7 +18,7 @@
         <div class="container">
             <a class="navbar-brand" href="<?= BASEURL; ?>">
                 <img src="<?= BASEURL; ?>/img/a.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                BandMX
+                BandKART
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,10 +36,16 @@
                         <a class="nav-item nav-link" href="<?= BASEURL; ?>/genre">Genre</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-item nav-link" href="<?= BASEURL; ?>/user">User</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="<?= BASEURL; ?>/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-item nav-link" href="<?= BASEURL; ?>/about">AboutMe</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link" href="<?= BASEURL; ?>/about">Logout</a>
+                        <a class="nav-item nav-link" href="<?= BASEURL; ?>/login/logout">Logout</a>
                     </li>
                 </ul>
             </div>

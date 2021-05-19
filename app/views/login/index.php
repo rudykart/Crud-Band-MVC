@@ -29,91 +29,108 @@
 
 <body style="background-color: lightgray; ">
 
+    <section class="h-100 mt-3">
 
-    <!-- <body class="hold-transition sidebar-mini"> -->
-    <div class="container my-3">
+        <!-- <body class="hold-transition sidebar-mini"> -->
+        <div class="container h-100">
 
-        <!-- card header -->
-        <div class="card text-center" style="width: 20rem;">
-            <div class="card-header">
-                <h1><?= $data['title']; ?></h1>
-            </div>
+            <div class="row justify-content-center align-items-center">
 
-            <!-- card Body -->
-            <div class="card-body">
-                <form action="<?= BASEURL; ?>/login/prosesLogin" method="post">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="email..." name="email_user">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-user"></span>
+                <!-- card header -->
+                <div class="card" style="width: 25rem;">
+                    <div class="card-header text-center">
+                        <h1><?= $data['title']; ?></h1>
+                    </div>
+
+                    <!-- card Body -->
+                    <div class="card-body">
+                        <form action="<?= BASEURL; ?>/login/prosesLogin" method="post">
+
+                            <!-- flaher -->
+                            <div class="row mt-3">
+                                <div class="col-lg">
+                                    <?php Flasher::flash(); ?>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="password..." name="password_user">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
+                            <div class="form-group">
+                                <label for="email_user">Email</label>
+                                <input type="email" class="form-control" id="email_user" name="email_user">
                             </div>
-                        </div>
+
+                            <div class="form-group">
+                                <label for="password_user">Password</label>
+                                <input type="password" class="form-control" id="password_user" name="password_user">
+                            </div>
+
+                            <div class="form-group ">
+                                <center>
+                                    Belum memiliki akun, Klik <b><a href="" data-toggle="modal"
+                                            data-target="#formModalDaftar">disini!</a></b>
+                                </center>
+                            </div>
+
+                            <center>
+                                <!-- /.col -->
+                                <div class="col-4">
+                                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                </div>
+                                <!-- /.col -->
+                            </center>
+
+                        </form>
                     </div>
-
-                    <div class="input-group ">
-                        <center>
-                            Belum memiliki akun ?
-                        </center>
-                    </div>
-
-                    <center>
-                        <!-- /.col -->
-                        <div class="col-5">
-                            <button type="submit" class="btn btn-primary btn-block">Login</button>
-                        </div>
-                        <!-- /.col -->
-                    </center>
-
-                </form>
+                </div>
             </div>
         </div>
+        <!-- jQuery -->
+        <script src="<?= BASEURL; ?>/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="<?= BASEURL; ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    </div>
-    <!-- jQuery -->
-    <script src="<?= BASEURL; ?>/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?= BASEURL; ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Modal Tmbah -->
+        <div class="modal fade" id="formModalDaftar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document" style="width: 25rem;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="judulModal">Daftar</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="<?= BASEURL; ?>/login/daftar" method="post">
 
-    <!-- Modal Tmbah -->
-    <div class="modal fade" id="formModalDaftar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="judulModal">Tambah Data Genre</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <form action="<?= BASEURL; ?>/genre/tambah" method="post">
-                        <div class="form-group">
-                            <label for="nama_genre">Nama Genre</label>
-                            <input type="text" class="form-control" id="nama_genre" name="nama_genre">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="nama_user">Nama</label>
+                                <input type="text" class="form-control" id="nama_user" name="nama_user">
+                            </div>
+                            <div class="form-group">
+                                <label for="email_user">Email</label>
+                                <input type="email" class="form-control" id="email_user" name="email_user">
+                            </div>
+                            <div class="form-group">
+                                <label for="password_user">Password</label>
+                                <input type="password" class="form-control" id="password_user" name="password_user">
+                            </div>
+                            <div class="form-group">
+                                <label for="konfirmasi_password">Konfirmasi Password</label>
+                                <input type="password" class="form-control" id="konfirmasi_password"
+                                    name="konfirmasi_password">
+                            </div>
                         </div>
-                </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Tambah Data</button>
-                </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Daftar</button>
+                        </div>
 
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-
+    </section>
 </body>
 
 </html>

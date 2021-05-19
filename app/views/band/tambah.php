@@ -11,7 +11,7 @@
             </div>
             <div class="modal-body">
 
-                <form action="<?= BASEURL; ?>/band/tambah" method="post">
+                <form action="<?= BASEURL; ?>/band/tambah" method="post" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label for="nama_band">Nama Band</label>
@@ -31,6 +31,11 @@
                     <div class="form-group">
                         <label for="negara">Asal</label>
                         <input type="text" class="form-control" id="negara" name="negara">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto_band">Foto</label>
+                        <input type="file" class="form-control-file" id="foto_band" name="foto_band">
                     </div>
             </div>
 
